@@ -2,9 +2,9 @@ package dev.geovaneshimizu.loan.domain
 
 interface IncomeAwareLoanOffer {
 
-    fun offerForLowIncome(lowIncomeLoanMatches: LowIncomeLoanMatcher): Loan
+    fun offerForLowIncome(lowIncomeLoanOfferMatches: LowIncomeLoanOfferMatcher): Loan
 
-    fun offerForMidIncome(midIncomeLoanMatches: MidIncomeLoanMatcher): Loan
+    fun offerForMidIncome(midIncomeLoanOfferMatches: MidIncomeLoanOfferMatcher): Loan
 
-    fun offerForHighIncome(highIncomeLoanMatches: HighIncomeLoanMatcher): Loan
+    fun offerForHighIncome(highIncomeLoanOfferMatches: HighIncomeLoanOfferMatcher): Loan
 }

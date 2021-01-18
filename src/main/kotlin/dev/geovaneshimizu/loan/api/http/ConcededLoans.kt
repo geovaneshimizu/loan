@@ -1,4 +1,4 @@
-package dev.geovaneshimizu.loan.application.web
+package dev.geovaneshimizu.loan.api.http
 
 import dev.geovaneshimizu.loan.domain.Loan
 

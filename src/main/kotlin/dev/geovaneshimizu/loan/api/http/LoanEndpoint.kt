@@ -1,4 +1,4 @@
-package dev.geovaneshimizu.loan.application.web
+package dev.geovaneshimizu.loan.api.http
 
 import dev.geovaneshimizu.loan.domain.LoanMatcher
 import org.springframework.http.ResponseEntity
@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/loans")
-class LoansEndpoint() {
+class LoanEndpoint {
 
     @PostMapping
     fun post(@RequestBody lead: Lead): ResponseEntity<ConcededLoans> {
 
-        val concededLoans = LoanMatcher(lead.customer()).loans()
+        val concededLoans =
+            LoanMatcher(lead.customer())
+                .loans()
 
         return ResponseEntity.ok(ConcededLoans(lead.customerName(), concededLoans))
     }

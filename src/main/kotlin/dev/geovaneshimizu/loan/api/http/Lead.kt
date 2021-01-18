@@ -1,4 +1,4 @@
-package dev.geovaneshimizu.loan.application.web
+package dev.geovaneshimizu.loan.api.http
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import dev.geovaneshimizu.loan.domain.Customer

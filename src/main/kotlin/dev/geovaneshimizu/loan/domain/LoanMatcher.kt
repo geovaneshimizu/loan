@@ -1,13 +1,13 @@
 package dev.geovaneshimizu.loan.domain
 
-class LoanMatcher(private val customer: Customer) {
+class LoanMatcher(customer: Customer) {
+
+    private val loanMatcherStrategy = CustomerIncomeAwareLoanOfferMatcher(customer)
 
     private val concededLoans by lazy {
-        val loanOffers = setOf(PersonalLoanOffer(), CollateralizedLoanOffer(), PayrollLoanOffer())
-        val loanMatcher = CustomerToIncomeAwareLoanMatcher()(this.customer)
-
-        loanOffers
-            .map { loanMatcher.matchOffer(it) }
+        LoanOffer.values()
+            .map { this.loanMatcherStrategy.matchOffer(it) }
+            .map { if (it is Loan.ConcededConditionally) it.grantIfCustomerMeetsCondition(customer) else it }
             .filterIsInstance<Loan.Conceded>()
     }
 
