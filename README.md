@@ -1,5 +1,7 @@
 # Loan application
 
+> An implementation of this challenge: https://github.com/Creditas/challenge/tree/master/backend/code-challenges
+
 This application provides the following loan types:
 
 - Personal Loan. Interest Rate: 4%
